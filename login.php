@@ -1,24 +1,3 @@
-<?php
-session_start();
-include 'config.php';
-
-if(isset($_POST['login'])) {
-    $user = mysqli_real_escape_string($conn, $_POST['user']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-    // Check admin table
-    $query = mysqli_query($conn, "SELECT * FROM admin WHERE user='$user' AND password='$password'");
-    if(mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query);
-        $_SESSION['id_user'] = $data['id_user'];
-        $_SESSION['nama'] = $data['nama'];
-        $_SESSION['admin_logged_in'] = true;
-        header("Location: admin_dashboard.php");
-    } else {
-        $error = "Username atau Password salah!";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -32,11 +11,15 @@ if(isset($_POST['login'])) {
 <div class="container login-container" style="margin: 0;">
     <h2 style="text-align: center; margin-bottom: 20px;">Login Admin</h2>
     
-    <?php if(isset($error)): ?>
-        <div class="alert alert-danger"><?php echo $error; ?></div>
-    <?php endif; ?>
+    <?php 
+    if(isset($_GET['status'])) {
+        if($_GET['status'] == 'gagal') {
+            echo '<div class="alert alert-danger">Username atau Password salah!</div>';
+        }
+    }
+    ?>
 
-    <form action="" method="POST">
+    <form action="cek_login.php" method="POST">
         <div class="form-group">
             <label for="user">Username</label>
             <input type="text" id="user" name="user" class="form-control" required autofocus>
