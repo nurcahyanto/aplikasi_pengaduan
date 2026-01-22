@@ -11,7 +11,9 @@
 
 <header>
     <div class="header-content">
-        <div class="logo-placeholder">LOGO</div>
+        <div class="logo-placeholder">
+            <img src="asset/logo.png" alt="Logo">
+        </div>
         <div>
             <h1>Pengaduan Sarana Sekolah</h1>
             <p>Cek Status & Histori Laporan Anda</p>
@@ -40,8 +42,6 @@
         <?php
         $nis = mysqli_real_escape_string($conn, $_GET['cari_nis']);
         
-        // Query to join input_aspirasi with aspirasi and kategori
-        // We want to see history of all aspirations for this NIS
         $query = "SELECT ia.*, a.status, a.feedback, k.ket_kategori 
                   FROM input_aspirasi ia
                   JOIN aspirasi a ON ia.id_pelaporan = a.id_pelaporan

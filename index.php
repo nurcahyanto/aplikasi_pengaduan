@@ -11,7 +11,9 @@
 
 <header>
     <div class="header-content">
-        <div class="logo-placeholder">LOGO</div>
+        <div class="logo-placeholder">
+            <img src="asset/logo.png" alt="Logo">
+        </div>
         <div>
             <h1>Pengaduan Sarana Sekolah</h1>
             <p>Sampaikan aspirasi Anda untuk kemajuan sekolah kita</p>

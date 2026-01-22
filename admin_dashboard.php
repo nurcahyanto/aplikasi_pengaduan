@@ -66,38 +66,15 @@ $result = mysqli_query($conn, $query);
         document.getElementById('modalBackdrop').style.display = 'none';
     }
     </script>
-    <style>
-        /* Simple Modal Styling */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-        }
-        .filter-group {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-    </style>
+ 
 </head>
 <body>
 
 <header>
     <div class="header-content">
-        <div class="logo-placeholder">ADM</div>
+        <div class="logo-placeholder">
+            <img src="asset/logo.png" alt="Logo">
+        </div>
         <div>
             <h1>Dashboard Admin</h1>
             <p>Halo, <?php echo $_SESSION['nama']; ?></p>
